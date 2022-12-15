@@ -1,18 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using DevFreelaApp.Models;
 
 namespace DevFreelaApp.Controllers
 {
     [Route("api/projects")]
     public class ProjectController : ControllerBase
     {
-        //private readonly OpeningTimeOption _option;
-        //public ProjectsController(IOptions<OpeningTimeOption> option, ExampleClassInjection exampleclassinjection)
-        //{
-        //    exampleclassinjection.Name = "Updated at ProjectController";
-        //    _option = option.Value;
+        private readonly OpeningTimeOption _option;
+        public ProjectController(IOptions<OpeningTimeOption> option, ExampleClassInjection exampleclassinjection)
+        {
+            exampleclassinjection.Name = "Updated at ProjectController";
+            _option = option.Value;
 
-        //}
+        }
 
         [HttpGet]
         public IActionResult Get(string query)
