@@ -1,6 +1,6 @@
 ﻿namespace DevFreelaApp.Models
 {
-    public class CommentModel
+    public class CreateCommentModel
     {
         public string Content { get; set; }
     }
