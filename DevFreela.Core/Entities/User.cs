@@ -23,10 +23,12 @@ namespace DevFreela.Core.Entities
         public DateTime BirthDate { get; set; }
         public DateTime CreatedAt { get; set; }
         public Boolean Active { get; set; }
+        public Skill Skill { get; set; }
 
         public List<UserSkill> Skills { get; set; }
         public List<Project> OwnerProject { get; set; }
         public List<Project> FreelanceProject { get; set; }
+        public List<ProjectComment> Comments { get; set; }
         
     }
 }
