@@ -6,16 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevFreela.Application.ViewModels
+namespace DevFreela.Application.InputModels
 {
     public class NewUserInputModel
     {
-
         public string FullName { get; set; }
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime CreatedAt { get; set; }
-        public Boolean Active { get; set; }
+        public bool Active { get; set; }
 
         public List<UserSkill> Skills { get; set; }
         public List<Project> OwnerProject { get; set; }

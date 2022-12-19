@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DevFreela.Application.InputModels;
 using DevFreela.Application.Services.Interfaces;
 using DevFreela.Application.ViewModels;
 using DevFreela.Core.Entities;
@@ -19,6 +20,7 @@ namespace DevFreela.Application.Services.Implementations
         {
             var project = new Project(inputModel.Title, inputModel.Description, inputModel.IdCliente, inputModel.IdFreelancer, inputModel.TotalCoast);
             _dbContext.Projects.Add(project);
+            _dbContext.SaveChanges();
             return project.id;
         }
 
@@ -26,12 +28,14 @@ namespace DevFreela.Application.Services.Implementations
         {
             var comment = new ProjectComment(inputModel.Content, inputModel.IdUser, inputModel.IdProject);
             _dbContext.ProjectComments.Add(comment);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var project = _dbContext.Projects.SingleOrDefault(p => p.id == id);
             project.Cancel();
+            _dbContext.SaveChanges();
 
         }
 
@@ -39,6 +43,7 @@ namespace DevFreela.Application.Services.Implementations
         {
             var project = _dbContext.Projects.SingleOrDefault(p => p.id == id);
             project.Finish();
+            _dbContext.SaveChanges();
         }
 
         public List<ProjectViewModel> GetAll(string query)
@@ -75,6 +80,7 @@ namespace DevFreela.Application.Services.Implementations
         {
             var project = _dbContext.Projects.SingleOrDefault(p => p.id == inputModel.Id);
             project.Update(inputModel.Title, inputModel.Description, inputModel.TotalCoast);
+            _dbContext.SaveChanges();
         }
     }
 }

@@ -16,3 +16,4 @@ namespace DevFreela.Infrastructure.Persistence.Configuration
 
         }
     }
+}
